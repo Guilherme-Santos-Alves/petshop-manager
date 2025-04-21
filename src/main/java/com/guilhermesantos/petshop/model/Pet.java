@@ -1,4 +1,4 @@
-package com.guilhermesantos.petshop.PetShop.model;
+package com.guilhermesantos.petshop.model;
 
 import jakarta.persistence.*;
 
@@ -22,9 +22,9 @@ public class Pet {
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
-    @ManyToOne
-    @JoinColumn( name = "owner_id")
-    private Owner owner;
+
+    @Column(name = "owner_id")
+    private Integer owner;
 
     public Long getId() {
         return id;
@@ -90,11 +90,11 @@ public class Pet {
         this.birthDate = birthDate;
     }
 
-    public Owner getOwner() {
+    public Integer getOwner() {
         return owner;
     }
 
-    public void setOwner(Owner owner) {
+    public void setOwner(Integer owner) {
         this.owner = owner;
     }
 }

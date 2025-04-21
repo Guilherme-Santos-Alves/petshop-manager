@@ -1,4 +1,4 @@
-package com.guilhermesantos.petshop.PetShop;
+package com.guilhermesantos.petshop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

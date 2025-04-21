@@ -1,4 +1,4 @@
-package com.guilhermesantos.petshop.PetShop.model;
+package com.guilhermesantos.petshop.model;
 
 import jakarta.persistence.*;
 
