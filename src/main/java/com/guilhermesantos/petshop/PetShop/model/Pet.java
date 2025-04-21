@@ -22,6 +22,10 @@ public class Pet {
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
+    @ManyToOne
+    @JoinColumn( name = "owner_id")
+    private Owner owner;
+
     public Long getId() {
         return id;
     }
@@ -84,5 +88,13 @@ public class Pet {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 }
