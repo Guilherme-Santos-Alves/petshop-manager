@@ -1,35 +1,18 @@
-package com.guilhermesantos.petshop.model;
-
-import jakarta.persistence.*;
+package com.guilhermesantos.petshop.dto;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "ps_pet")
-public class Pet {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class PetCreateDTO {
     private String name;
     private String breed;
     private String gender;
     private String color;
-
-    private Double weight;
-    private Double height;
-
-    @Column(name = "birth_date")
+    private double weight;
+    private double height;
     private LocalDate birthDate;
-
-    @Transient
     private Long ownerId;
 
-    @ManyToOne
-    @JoinColumn(name = "owner_id", referencedColumnName = "id")
-    private Owner owner;
-
-    public Pet(String name, String breed, String gender, String color, Double weight, Double height, LocalDate birthDate, Long ownerId, Owner owner) {
+    public PetCreateDTO(String name, String breed, String gender, String color, double weight, double height, LocalDate birthDate, Long ownerId) {
         this.name = name;
         this.breed = breed;
         this.gender = gender;
@@ -38,19 +21,6 @@ public class Pet {
         this.height = height;
         this.birthDate = birthDate;
         this.ownerId = ownerId;
-        this.owner = owner;
-    }
-
-    public Pet () {
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -85,19 +55,19 @@ public class Pet {
         this.color = color;
     }
 
-    public Double getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(Double weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public Double getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public void setHeight(Double height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
@@ -107,14 +77,6 @@ public class Pet {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
-    }
-
-    public Owner getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
     }
 
     public Long getOwnerId() {

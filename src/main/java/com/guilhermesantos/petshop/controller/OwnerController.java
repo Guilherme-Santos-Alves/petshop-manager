@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/owner")
@@ -17,6 +18,11 @@ public class OwnerController {
     @GetMapping
     public List<Owner> getAllOwners() {
         return ownerService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Owner> getOwnerById(@PathVariable Long id) {
+        return ownerService.getOwnerById(id);
     }
 
     @PostMapping

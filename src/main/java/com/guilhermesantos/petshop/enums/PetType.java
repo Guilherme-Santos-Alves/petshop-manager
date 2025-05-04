@@ -7,6 +7,5 @@ public enum PetType {
     LIZARD,
     RABBIT,
     SNAKE,
-    TURTLE,
-    OTHER
+    TURTLE
 }

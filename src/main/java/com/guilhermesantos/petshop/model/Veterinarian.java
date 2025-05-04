@@ -1,11 +1,10 @@
 package com.guilhermesantos.petshop.model;
 
-import com.guilhermesantos.petshop.enums.StaffRole;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "ps_staff")
-public class Staff {
+@Table(name = "ps_vet")
+public class Veterinarian {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,12 +15,11 @@ public class Staff {
     @Column(unique = true, nullable = false)
     private String cpf;
 
+    private String crmv;
+
     private String email;
 
     private String phone;
-
-    @Enumerated(EnumType.STRING)
-    private StaffRole role;
 
     public Long getId() {
         return id;
@@ -47,6 +45,14 @@ public class Staff {
         this.cpf = cpf;
     }
 
+    public String getCrmv() {
+        return crmv;
+    }
+
+    public void setCrmv(String crmv) {
+        this.crmv = crmv;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -61,13 +67,5 @@ public class Staff {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public StaffRole getRole() {
-        return role;
-    }
-
-    public void setRole(StaffRole role) {
-        this.role = role;
     }
 }

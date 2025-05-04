@@ -6,6 +6,7 @@ import com.guilhermesantos.petshop.repository.OwnerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OwnerService {
@@ -20,6 +21,10 @@ public class OwnerService {
         return ownerRepository.findAll();
     }
 
+    public Optional<Owner> getOwnerById(Long id) {
+        return ownerRepository.findById(id);
+    }
+
     public Owner save(Owner owner) {
         return ownerRepository.save(owner);
     }
@@ -27,4 +32,6 @@ public class OwnerService {
     public void deleteById(Long id) {
         ownerRepository.deleteById(id);
     }
+
+
 }

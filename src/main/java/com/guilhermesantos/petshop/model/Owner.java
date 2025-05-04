@@ -10,8 +10,24 @@ public class Owner {
     private Long id;
 
     private String name;
+
+    @Column(unique = true, nullable = false)
+    private String cpf;
+
     private String phone;
+
     private String email;
+
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     private String address;
 
     public Long getId() {
@@ -52,5 +68,13 @@ public class Owner {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }

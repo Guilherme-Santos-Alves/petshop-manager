@@ -1,35 +1,20 @@
-package com.guilhermesantos.petshop.model;
-
-import jakarta.persistence.*;
+package com.guilhermesantos.petshop.dto;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "ps_pet")
-public class Pet {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PetDTO {
     private Long id;
-
     private String name;
     private String breed;
     private String gender;
     private String color;
-
     private Double weight;
     private Double height;
-
-    @Column(name = "birth_date")
     private LocalDate birthDate;
-
-    @Transient
     private Long ownerId;
 
-    @ManyToOne
-    @JoinColumn(name = "owner_id", referencedColumnName = "id")
-    private Owner owner;
-
-    public Pet(String name, String breed, String gender, String color, Double weight, Double height, LocalDate birthDate, Long ownerId, Owner owner) {
+    public PetDTO(Long id, String name, String breed, String gender, String color, double weight, double height, LocalDate birthDate, Long ownerId) {
+        this.id = id;
         this.name = name;
         this.breed = breed;
         this.gender = gender;
@@ -38,11 +23,6 @@ public class Pet {
         this.height = height;
         this.birthDate = birthDate;
         this.ownerId = ownerId;
-        this.owner = owner;
-    }
-
-    public Pet () {
-
     }
 
     public Long getId() {
@@ -107,14 +87,6 @@ public class Pet {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
-    }
-
-    public Owner getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
     }
 
     public Long getOwnerId() {
